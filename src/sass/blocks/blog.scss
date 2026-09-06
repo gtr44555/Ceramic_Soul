@@ -1,0 +1,113 @@
+@use "/src/sass/base/variables.scss" as *;
+
+.blog {
+  padding-top: 50px;
+  &__title {
+    margin-top: 60px;
+  }
+  &__wrapper {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  .blog__title-h3 {
+    text-align: left;
+  }
+  &__card {
+    border: 1px solid $dark;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+    background: $light;
+  }
+  &__data {
+    &-column {
+      padding: 25px 25px 0 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+  }
+  &__text {
+    margin-top: 25px;
+    padding: 0 25px 25px 25px;
+    font-weight: 400;
+    font-size: 16px;
+    color: $dark;
+    flex: 1 1 auto;
+  }
+  &__img {
+    max-inline-size: calc(100% + 2px);
+    transform: translateX(-1px) translateY(-1px);
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .blog {
+    &__data {
+      &-column {
+        gap: 0px;
+        justify-content: space-between;
+      }
+    }
+    &__wrapper {
+      margin: 85px 25px 60px 25px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        left: -25px;
+        top: -25px;
+        width: 1px;
+        height: 200px;
+        background-color: $dark;
+        display: block;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: -25px;
+        top: -25px;
+        width: 200px;
+        height: 1px;
+        background-color: $dark;
+        display: block;
+      }
+    }
+    &__text {
+      margin-top: 15px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+    .blog {
+        &__wrapper {
+            flex-wrap: nowrap;
+            flex-direction: row;
+        }
+        &__card {
+            width: 50%;
+        }
+        &__img {
+            object-fit: cover;
+            width: 260px;
+            height: 240px;
+        }
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .blog {
+        &__img {
+            width: 335px;
+            height: 240px;
+        }
+        &__wrapper {
+            margin-bottom: 100px;
+            align-items: stretch;
+        }
+    }
+}
